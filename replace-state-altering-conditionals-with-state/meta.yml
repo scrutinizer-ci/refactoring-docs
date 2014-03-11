@@ -1,3 +1,4 @@
+title: Replace State Altering Conditionals with State
 initial_situation: The conditional expressions that control an object's state transitions are complex.
 target_situation: Replace the conditionals with State classes that handle specific states and transitions between them.
 difficulty: easy
@@ -11,3 +12,7 @@ pros:
 
 cons:
     - 'Complicates a design when state transition logic is already easy to follow.'
+
+examples:
+    doctrine-entity:
+        title: Doctrine Entity

@@ -1,3 +1,4 @@
+title: Move Embellishment to Decorator
 initial_situation: Code provides an embellishment to a class's core responsibility.
 target_situation: Move the embellishment code to a Decorator.
 difficulty: medium
@@ -8,6 +9,8 @@ pros:
     - "Simplifies a class by removing embellishments from it.\r"
     - "Effectively distinguishes a class's core reponsibility from its embellishments.\r"
     - 'Helps remove duplicated embellishment logic in several related classes.'
+
+intro: ''
 
 cons:
     - "Changes the object identity of a decorated object.\r"

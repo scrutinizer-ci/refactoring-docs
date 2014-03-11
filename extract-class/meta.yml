@@ -1,3 +1,4 @@
+title: Extract Class
 initial_situation: You have one class doing work that should be done by two.
 target_situation: Create a new class and move the relevant fields and methods from the old class into the new class.
 difficulty: easy
@@ -9,6 +10,16 @@ pros:
 
 cons:
     - 'Complexifies a design when the class is rarely used and changed infrequently'
+
+intro: |
+    You might have heard that classes should have a single responsibility. Even if
+    you try to follow this dogma, in practice classes grow. Some operations are,
+    some more data is added, and sooner or later your class has more than one
+    reponsibility.
+
+    The **Extract Class** refactoring is best applied if there are logical units of
+    data which are grouped together, or operations which are just performed on a
+    subset of the data.
 
 checklist:
     -
@@ -26,3 +37,7 @@ checklist:
     -
         title: 'Value object vs. reference object'
         description: 'Decide whether you would like to expose the new object as a value object (immutable), or a reference object (may be modified).'
+
+examples:
+    related-fields-to-value-object:
+        title: Moving Related Fields to Value Object

@@ -1,3 +1,4 @@
+title: Replace Conditional Logic with Strategy
 initial_situation: Conditional logic in a method controls which of several paths of a calculation are executed.
 target_situation: Create a Strategy for each path and make the method delegate to a Strategy instance.
 difficulty: medium
@@ -12,3 +13,5 @@ pros:
 cons:
     - "Complicates a design when an inheritance-based solution or a refactoring from "Simplifying Conditional Expressions" is simpler.\r"
     - 'Complicates how algorithms obtain or receive data from their context class.'
+
+intro: ''

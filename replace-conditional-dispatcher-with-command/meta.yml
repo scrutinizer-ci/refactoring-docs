@@ -1,3 +1,4 @@
+title: Replace Conditional Dispatcher with Command
 initial_situation: Conditional logic is used to dispatch requests and execute actions.
 target_situation: Create a Command for each action. Store the Commands in a collection and replace the conditional logic with code to fetch and execute Commands.
 difficulty: medium
@@ -11,6 +12,29 @@ pros:
 
 cons:
     - 'Complicates a design when a conditional dispatcher is sufficient.'
+
+intro: |
+    A conditional dispatcher is a conditional statement (typically ``switch``) which
+    is used to route and handle a request.
+
+    Conditional dispatchers are not necessarily bad, some are well suited for the
+    task they are performing. This applies mostly to dispatchers which are small, but
+    even small Conditional Dispatchers might be better refactored to the Command pattern.
+
+    If one of the following is the case for you, you can benefit from using a Command
+    pattern over a Conditional dispatcher:
+
+    - *Need for Runtime Flexibility*: You want to pass in requests which you do not know of (for
+      example, because they are provided by third-party libraries).
+
+    - *Long Conditional Dispatchers with big chunks of code*
+
+    The **Command pattern** simply places the action related code into a separate class,
+    the Command class. A command class typically has a ``execute`` or ``run`` method.
+
+    If you are not sure yet whether you should keep a Conditional Dispatcher or use
+    a Command pattern, keep the Conditional Dispatcher. The Command pattern is very
+    easy to refactor to if the need arises.
 
 checklist:
     -
@@ -34,3 +58,7 @@ checklist:
     -
         title: 'Replace the Conditional Dispatcher with code retrieving the correct command and executing it'
         description: ''
+
+examples:
+    workflow-server-worker:
+        title: Workflow Server Worker
