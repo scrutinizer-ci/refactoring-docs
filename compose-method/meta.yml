@@ -1,0 +1,13 @@
+initial_situation: You cannot rapidly understand a method's logic.
+target_situation: Transform the logic into a small number of intention-revealing steps each with the same level of detail.
+difficulty: easy
+
+fixes: [long-method]
+
+pros:
+    - "Simplifies a method by breaking it up into well-named chunks of behavior at the same level of detail.\r"
+    - 'Efficiently communicates what a method does and how it does what it does.'
+
+cons:
+    - "Can make debugging difficult because logic is spread out across many small methods.\r"
+    - 'Can lead to an overabundance of small methods.'

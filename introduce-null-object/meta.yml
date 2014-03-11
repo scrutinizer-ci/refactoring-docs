@@ -1,0 +1,34 @@
+initial_situation: Logic for dealing with a null field or variable is duplicated throughout your code.
+target_situation: Replace the null logic with a Null Object, an object that provides the approriate null behavior.
+difficulty: easy
+
+fixes: [duplicated-code, conditional-complexity]
+
+pros:
+    - "Prevents null errors without duplicating null logic.\r"
+    - 'Simplifies code by minimizing null tests.'
+
+cons:
+    - "Complicates a design when a system needs only a few null tests.\r"
+    - "Can lead to redundant null tests if programmers are unaware of a Null Object implementation.\r"
+    - 'Complicates maintenance. Null Objects that have a superclass must override all newly inherited public methods.'
+
+checklist:
+    -
+        title: 'Create a Null Object'
+        description: 'A null object can be created either by sub-classing or by implement an interface.'
+    -
+        title: 'Find Null Check'
+        description: 'A null check is code which either checks that a variable is not null to then execute a method on it, or code that performs some alternative behavior in case a variable is null. Implement the null-behavior in the Null Object.'
+    -
+        title: 'Repeat step 2'
+        description: 'Do the same for all other null checks.'
+    -
+        title: 'Initialize Variable/Field to Null Object'
+        description: 'Go to a class where a null check is used an initialize a field or variable to the Null object at the earliest possible time.'
+    -
+        title: 'Replace Null Checks'
+        description: 'In the same class, replace all null checks with calls to the method on the Null object instead.'
+    -
+        title: 'Repeat steps 4 & 5'
+        description: 'Repeat both steps until all null checks have been removed.'

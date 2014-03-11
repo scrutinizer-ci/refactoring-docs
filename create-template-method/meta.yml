@@ -1,0 +1,5 @@
+initial_situation: Two methods in subclasses perform similar steps in the same order, yet steps are different.
+target_situation: Generalize the methods by extracting their steps into methods with identical signatures, then pull up the generalized methods to create a Template Method.
+difficulty: unknown
+
+fixes: [duplicated-code]

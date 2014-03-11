@@ -1,0 +1,28 @@
+initial_situation: You have one class doing work that should be done by two.
+target_situation: Create a new class and move the relevant fields and methods from the old class into the new class.
+difficulty: easy
+
+pros:
+    - "Crisp class with clear responsibilities\r"
+    - "Easier to understand class\r"
+    - 'May help reduce duplicate code'
+
+cons:
+    - 'Complexifies a design when the class is rarely used and changed infrequently'
+
+checklist:
+    -
+        title: 'Determine what to extract'
+        description: 'Find logical units of data which are grouped together or operations which are performed on a subset of the data.'
+    -
+        title: 'Create a New Class'
+        description: 'Create a new class with the extracted operations and establish a link from the old to new class. This link might be bidirectional.'
+    -
+        title: 'Rename the Old Class'
+        description: 'If the name of the old class is not fitting anymore, consider renaming it.'
+    -
+        title: 'Review the interfaces and links of each class'
+        description: 'The goal should be minimally coupled classes. Examine both classes to see if you can replace a bidirectional relationship with a unidirectional relationship.'
+    -
+        title: 'Value object vs. reference object'
+        description: 'Decide whether you would like to expose the new object as a value object (immutable), or a reference object (may be modified).'

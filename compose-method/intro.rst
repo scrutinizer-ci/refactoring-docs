@@ -1,0 +1,21 @@
+**Composed Method** is a very basic pattern that should be in everyone's refactoring arsenal.
+A composed method is nothing more than a method that calls out to other methods. 
+It is best applied when all called methods have rawly the same level of detail.
+
+Refactoring towards a composed method often involves extracting code from the
+original method. If you have a hard time naming the extracted methods. This is a 
+good indication that the chunk of code you were about to extract was too big, 
+try to find a smaller chunk in such a case.
+
+If you find yourself with too many small private methods in your class after
+applying this refactoring, you might want to apply :refactoring:`extract-class`
+next.
+
+**Guidelines**
+
+- *Smaller is preferable*
+- *Remove duplication*: When refactoring to a composed method, try to reduce code duplication.
+- *Communicate intention*: Name all variables, methods, parameters so they clearly communicate their purpose.
+- *Simplify*
+- *Same level of detail*: All called methods should have the same level of detail.
+  For example, calling a simple getter and a method performing a heavy computation is not ideal.

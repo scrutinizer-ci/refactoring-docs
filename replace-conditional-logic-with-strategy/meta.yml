@@ -1,0 +1,14 @@
+initial_situation: Conditional logic in a method controls which of several paths of a calculation are executed.
+target_situation: Create a Strategy for each path and make the method delegate to a Strategy instance.
+difficulty: medium
+
+fixes: [long-method, conditional-complexity]
+
+pros:
+    - "Clarifies algorithms by decreasing or removing conditional logic.\r"
+    - "Simplifies a class by moving variations on an algorithm to a hierarchy.\r"
+    - 'Enables one algorithm to be swapped for another easily.'
+
+cons:
+    - "Complicates a design when an inheritance-based solution or a refactoring from "Simplifying Conditional Expressions" is simpler.\r"
+    - 'Complicates how algorithms obtain or receive data from their context class.'

@@ -1,0 +1,19 @@
+initial_situation: You have a single big method that accumulates information to a local variable.
+target_situation: Instead accumulate results to a Collecting Parameter which gets passed to the extracted methods.
+difficulty: easy
+
+fixes: [long-method]
+
+pros:
+    - 'Helps transform big methods into smaller, simpler and easier-to-read methods.'
+
+checklist:
+    -
+        title: 'Identify Accumulation Method'
+        description: 'Find a method which accumulates information and stores the result to a local variable.'
+    -
+        title: 'Extract first Accumulation Operation'
+        description: 'Extract a logical unit of the accumulation to its own private method in the class, and pass the result variable as parameter. If the type of the variable cannot be modified by reference, you might need to switch its type.'
+    -
+        title: 'Repeat step 2 for every Accumulation Operation'
+        description: ''

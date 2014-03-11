@@ -1,0 +1,36 @@
+initial_situation: Conditional logic is used to dispatch requests and execute actions.
+target_situation: Create a Command for each action. Store the Commands in a collection and replace the conditional logic with code to fetch and execute Commands.
+difficulty: medium
+
+fixes: [long-method]
+
+pros:
+    - "Provides a simple mechanism for executing diverse behavior in a uniform way.\r"
+    - "Enables runtime changes regarding which requests are handled and how.\r"
+    - 'Requires trivial code to implement.'
+
+cons:
+    - 'Complicates a design when a conditional dispatcher is sufficient.'
+
+checklist:
+    -
+        title: 'Locate the Request Handling Code'
+        description: 'On the class which contains the conditional dispatcher, find the request handling code and extract it to a method.'
+    -
+        title: 'Repeat step 1'
+        description: 'Repeat step 1 for all request-handling code chunks. So that each handling code has its own method.'
+    -
+        title: 'Extract request-handling methods'
+        description: 'Next, extract each request-handling method to a new class, the Command class. The request-handling method is then typically named ``execute`` or ``run``.'
+    -
+        title: 'Define a Command base class/interface'
+        description: 'Once you have extracted all methods to Command classes, analyze them to see which code they have in common. This typically means: Determining common dependencies, determening common parameters, determining the simplest signature.'
+    -
+        title: 'Extend/Implement the base class/interface'
+        description: ''
+    -
+        title: 'Create a map containing all commands in the class containing the Conditional Dispatcher'
+        description: ''
+    -
+        title: 'Replace the Conditional Dispatcher with code retrieving the correct command and executing it'
+        description: ''

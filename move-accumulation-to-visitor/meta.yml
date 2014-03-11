@@ -1,0 +1,15 @@
+initial_situation: A method accumulates information from heterogeneous classes.
+target_situation: Move the accumulation task to a Visitor that can visit each class to accumulate the information.
+difficulty: advanced
+
+fixes: [long-method]
+
+pros:
+    - "Accommodates numerious algorithms for the same heterogeneous object structure.\r"
+    - "Visits classes in the same or different hierarchies.\r"
+    - 'Calls type-specific methods on heterogeneous classes without type-casting.'
+
+cons:
+    - "Complicates a design when a common interface can make heterogeneous classes homogeneous.\r"
+    - "A new visitable class requires a new accept method along with a new visit method on each Visitor.\r"
+    - 'May break encapsulation of visited class.'
