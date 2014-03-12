@@ -61,4 +61,4 @@ checklist:
 
 examples:
     workflow-server-worker:
-        title: Workflow Server Worker
+        title: Background Worker

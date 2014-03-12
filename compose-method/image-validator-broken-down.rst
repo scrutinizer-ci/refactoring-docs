@@ -57,8 +57,8 @@ validation of an image according to criteria which are passed as a parameter::
         }
     }
 
-Creating a Composed Method
---------------------------
+Creating a Composing Method
+---------------------------
 The current ``validate()`` method can be rawly composed into three different 
 steps:
 
@@ -107,4 +107,4 @@ steps:
     }
 
 The ``validateImageSize`` is still quite big. We could go ahead an re-apply the
-**Composed Method** refactoring to it as well to split it up further.
+**Compose Method** refactoring to it as well to split it up further.
