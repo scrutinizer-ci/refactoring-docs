@@ -1,7 +1,23 @@
 title: Create Template Method
-initial_situation: Two methods in subclasses perform similar steps in the same order, yet steps are different.
-target_situation: Generalize the methods by extracting their steps into methods with identical signatures, then pull up the generalized methods to create a Template Method.
+initial_situation: Two methods perform similar steps, yet steps differ slightly.
+target_situation: Create a generalized method (the Template method) in a base class and provide specific extension points for overriding.
 difficulty: easy
 
 fixes: [duplicated-code]
-intro: ''
+intro: |
+    The template method refactoring can be applied easily to reduce duplicate code in algorithms. Instead of allowing
+    sub-classes to override the entire logic of a method, the base class provides specific extension points for sub-classes.
+
+    This refactoring should be used if you want to make sure that essential parts of an algorithm are followed while
+    still allowing certain parts of the algorithm to be changed.
+
+    The Template Method Pattern (uses inheritance) is very similar to the Strategy pattern (uses composition) as such
+    the benefits of either pattern closely relate to these fundamental code design approaches. Generally, the Strategy
+    pattern allows you to make more fine-grained replacements of the algorithm in contrast to using a sub-class.
+
+    Further Resources
+    -----------------
+
+    - `Template Method Pattern <http://sourcemaking.com/design_patterns/template_method>`_
+
+# TODO: Relates to Strategy, Factory Method
