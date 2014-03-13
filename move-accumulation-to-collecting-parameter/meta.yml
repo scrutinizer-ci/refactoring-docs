@@ -23,7 +23,7 @@ intro: |
 
 examples:
     php-dumper:
-        title: PHP Dumper
+        title: Code Generator
 
 checklist:
     -

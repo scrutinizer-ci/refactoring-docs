@@ -1,12 +1,12 @@
 title: Create Template Method
 initial_situation: Two methods perform similar steps, yet steps differ slightly.
-target_situation: Create a generalized method (the Template method) in a base class and provide specific extension points for overriding.
+target_situation: Create a generalized method (the Template method) in a parent class and provide specific extension points for overriding.
 difficulty: easy
 
 fixes: [duplicated-code]
 intro: |
     The template method refactoring can be applied easily to reduce duplicate code in algorithms. Instead of allowing
-    sub-classes to override the entire logic of a method, the base class provides specific extension points for sub-classes.
+    sub-classes to override the entire logic of a method, the parent class provides specific extension points for sub-classes.
 
     This refactoring should be used if you want to make sure that essential parts of an algorithm are followed while
     still allowing certain parts of the algorithm to be changed.
@@ -19,5 +19,30 @@ intro: |
     -----------------
 
     - `Template Method Pattern <http://sourcemaking.com/design_patterns/template_method>`_
+
+checklist:
+    -
+        title: Find two methods in sub-classes which perform similar steps
+        description: Find two methods and extract the parts of each method which differ in both methods into new methods.
+
+    -
+        title: Unify the names of the now identical methods
+        description: Unify the names of the methods which are now identical.
+
+    -
+        title: Consolidate method in the parent class
+        description: Move one of the identical methods to the parent class and remove the other one from the sub-class.
+
+    -
+        title: Create abstract methods in the parent class
+        description: Create abstract methods in the parent class for each of the different methods in sub-classes.
+
+pros:
+    - 'Removes duplicate code from sub-classes.'
+    - 'Helps communicate the different steps of an algorithm.'
+    - 'Provides explicit extension points for sub-classes.'
+
+cons:
+    - 'Makes code more complex if the similarity in both methods is low.'
 
 # TODO: Relates to Strategy, Factory Method
