@@ -19,8 +19,8 @@ difficulty: easy    # Available difficulty: easy, medium, advanced
 fixes: [long-method]   # Available smells: long-method, conditional-complexity, duplicated-code
 
 intro: |
-    A short overview of the refactoring, how it relates to other refactoring, things/guidelines which
-    should be considered.
+    A short overview of the refactoring, how it relates to other refactoring, 
+    things/guidelines which should be considered.
 
     This text should be in rst format (restructured text).
 
@@ -32,10 +32,11 @@ cons:
     - 'Could be bad if C.'
     - 'Sometimes leads to D.'
 
-related: [extract-class]  # A list of related refactorings (see folder names the available ones)
+related: [extract-class]  # A list of related refactorings 
+                          # (see folder names for the available ones)
 ```
 
-## Adding an Examples
+## Adding an Example
 
 To add an example, simply create a .rst (restructured text) document in the folder of the refactoring,
 and add the example to the meta.yml in that folder:
