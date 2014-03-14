@@ -1,18 +1,17 @@
 title: Replace State Altering Conditionals with State
-initial_situation: The conditional expressions that control an object's state transitions are complex.
-target_situation: Replace the conditionals with State classes that handle specific states and transitions between them.
+initial_situation: The code controlling an object's state transition are complex.
+target_situation: Replace conditional code with State classes which handle specific states and their transitions.
 difficulty: easy
 
 fixes: [conditional-complexity]
 
 pros:
-    - "Reduces or removes state-changing conditional logic.\r"
-    - "Simplifies complex state-changing logic.\r"
-    - 'Provides a good bird''s-eye view of state-changing logic.'
+    - 'Reduces or eliminates state-changing conditional code.'
+    - 'Simplifies complex state-changing code.'
+    - 'Provides a better overview of the state-changing code by encapsulating it.'
 
 cons:
-    - 'Complicates a design when state transition logic is already easy to follow.'
+    - 'Makes code more complex if state transitions are easy to follow as is.'
 
-examples:
-    doctrine-entity:
-        title: Doctrine Entity
+conditions:
+    - 'type == "class"'

@@ -1,21 +1,21 @@
 title: Replace Conditional Dispatcher with Command
-initial_situation: Conditional logic is used to dispatch requests and execute actions.
-target_situation: Create a Command for each action. Store the Commands in a collection and replace the conditional logic with code to fetch and execute Commands.
+initial_situation: Conditional code (switch. if-else, etc.) is used to determine execution flow.
+target_situation: Create a class (a Command) for each execution path and add code for fetching and executing them.
 difficulty: medium
 
 fixes: [long-method]
 
 pros:
-    - "Provides a simple mechanism for executing diverse behavior in a uniform way.\r"
-    - "Enables runtime changes regarding which requests are handled and how.\r"
-    - 'Requires trivial code to implement.'
+    - 'Simple way of executing diverse behavior in a uniform way.'
+    - 'Allows runtime modification of available commands.'
+    - 'Is easy to implement.'
 
 cons:
-    - 'Complicates a design when a conditional dispatcher is sufficient.'
+    - 'Makes code more complex if no additional flexibility is needed.'
 
 intro: |
     A conditional dispatcher is a conditional statement (typically ``switch``) which
-    is used to route and handle a request.
+    is used to change the execution flow of your code.
 
     Conditional dispatchers are not necessarily bad, some are well suited for the
     task they are performing. This applies mostly to dispatchers which are small, but
@@ -29,12 +29,20 @@ intro: |
 
     - *Long Conditional Dispatchers with big chunks of code*
 
-    The **Command pattern** simply places the action related code into a separate class,
+    The Command pattern simply places the action related code into a separate class,
     the Command class. A command class typically has a ``execute`` or ``run`` method.
 
     If you are not sure yet whether you should keep a Conditional Dispatcher or use
     a Command pattern, keep the Conditional Dispatcher. The Command pattern is very
     easy to refactor to if the need arises.
+
+    .. note ::
+        Commands are not necessarily related to the CLI, this pattern is frequently applied
+        in other scenarios as we can see in the example.
+
+    Further Resources
+    -----------------
+    - `Command Pattern <http://sourcemaking.com/design_patterns/command>`_
 
 checklist:
     -

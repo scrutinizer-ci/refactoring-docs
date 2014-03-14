@@ -11,6 +11,8 @@ pros:
 cons:
     - 'Complexifies a design when the class is rarely used and changed infrequently'
 
+fixes: ['conditional-complexity']
+
 intro: |
     You might have heard that classes should have a single responsibility. Even if
     you try to follow this dogma, in practice classes grow. Some operations are,
@@ -37,6 +39,9 @@ checklist:
     -
         title: 'Value object vs. reference object'
         description: 'Decide whether you would like to expose the new object as a value object (immutable), or a reference object (may be modified).'
+
+conditions:
+    - 'type == "class"'
 
 examples:
     related-fields-to-value-object:

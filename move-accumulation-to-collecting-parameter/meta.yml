@@ -1,12 +1,12 @@
 title: Move Accumulation to Collecting Parameter
-initial_situation: You have a single big method that accumulates information to a local variable.
-target_situation: Instead accumulate results to a Collecting Parameter which gets passed to the extracted methods.
+initial_situation: You have a single big method that writes information to local variables.
+target_situation: Instead write results to a Collecting Parameter which gets passed to the extracted methods.
 difficulty: easy
 
 fixes: [long-method]
 
 pros:
-    - 'Helps transform big methods into smaller, simpler and easier-to-read methods.'
+    - 'Helps split a big method into smaller and easier to understand methods.'
 
 intro: |
     A Collecting Parameter is an object that you pass to methods in order to collect
@@ -17,9 +17,13 @@ intro: |
     local variables, you instead pass an object to these methods and the methods
     can store their results in the passed object.
 
-    This refactoring is very similar to the :refactoring:`move-accumulation-to-visitor`
-    refactoring. A visitor may be the better approach if you collect data from diverse
-    interfaces and classes.
+#    This refactoring is very similar to the :refactoring:`move-accumulation-to-visitor`
+#    refactoring. A visitor may be the better approach if you collect data from diverse
+#    interfaces and classes.
+
+related:
+    - compose-method
+#    - move-accumulation-to-visitor
 
 examples:
     php-dumper:
