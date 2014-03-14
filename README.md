@@ -53,5 +53,5 @@ examples:
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.
 
-If you like to use the work, it is greatly appreciated if you place a visible link on each sub-page which
-uses material of this documentation, and link back to scrutinizer-ci.com - thanks :)
+If you would like to use the work, it is greatly appreciated if you place a visible link on each 
+sub-page which uses material of this documentation, and link back to scrutinizer-ci.com - thanks :)
