@@ -1,0 +1,44 @@
+title: Compose Method
+initial_situation: You cannot easily understand a method.
+target_situation: Transform the method into several smaller steps each of rawly the same scope.
+difficulty: easy
+fixes: [long-method]
+
+intro: |
+    **Compose Method** is a very basic pattern that should be in everyone's refactoring arsenal.
+    A composing method is nothing more than a method that calls out to other methods.
+    It is best applied when all called methods have rawly the same level of detail.
+
+    Refactoring towards a composing method often involves extracting code from the
+    original method. If you have a hard time naming the extracted methods. This is a
+    good indication that the chunk of code you were about to extract was too big,
+    try to find a smaller chunk in such a case. Often in longer methods, certain
+    sections are already labeled with a comment; these sections can frequently
+    be extracted into new methods.
+
+    If you find yourself with too many small private methods in your class after
+    applying this refactoring, you might want to apply :refactoring:`extract-class`
+    next.
+
+    **Guidelines**
+
+    - *Smaller is preferable*
+    - *Remove duplication*: When refactoring to a composing method, try to reduce code duplication.
+    - *Communicate intention*: Name all variables, methods, parameters so they clearly communicate their purpose.
+    - *Simplify*
+    - *Same level of detail*: All called methods should have the same level of detail.
+      For example, calling a simple getter and a method performing a heavy computation is not ideal.
+
+pros:
+    - 'Simplifies a method by splitting it up into small chunks rawly of the same scope.'
+    - 'Better communicates what a method does through its name.'
+
+cons:
+    - 'Sometimes makes debugging difficult if logic is spread across many small methods.'
+    - 'Sometimes leads to an excessive number of small methods (consider the Extract Class refactoring in this case)'
+
+related: [extract-class]
+
+examples:
+    image-validator-broken-down:
+        title: Splitting up a Validator

@@ -1,0 +1,72 @@
+title: Replace Conditional Dispatcher with Command
+initial_situation: Conditional code (switch. if-else, etc.) is used to determine execution flow.
+target_situation: Create a class (a Command) for each execution path and add code for fetching and executing them.
+difficulty: medium
+
+fixes: [long-method]
+
+pros:
+    - 'Simple way of executing diverse behavior in a uniform way.'
+    - 'Allows runtime modification of available commands.'
+    - 'Is easy to implement.'
+
+cons:
+    - 'Makes code more complex if no additional flexibility is needed.'
+
+intro: |
+    A conditional dispatcher is a conditional statement (typically ``switch``) which
+    is used to change the execution flow of your code.
+
+    Conditional dispatchers are not necessarily bad, some are well suited for the
+    task they are performing. This applies mostly to dispatchers which are small, but
+    even small Conditional Dispatchers might be better refactored to the Command pattern.
+
+    If one of the following is the case for you, you can benefit from using a Command
+    pattern over a Conditional dispatcher:
+
+    - *Need for Runtime Flexibility*: You want to pass in requests which you do not know of (for
+      example, because they are provided by third-party libraries).
+
+    - *Long Conditional Dispatchers with big chunks of code*
+
+    The Command pattern simply places the action related code into a separate class,
+    the Command class. A command class typically has a ``execute`` or ``run`` method.
+
+    If you are not sure yet whether you should keep a Conditional Dispatcher or use
+    a Command pattern, keep the Conditional Dispatcher. The Command pattern is very
+    easy to refactor to if the need arises.
+
+    .. note ::
+        Commands are not necessarily related to the CLI, this pattern is frequently applied
+        in other scenarios as we can see in the example.
+
+    Further Resources
+    -----------------
+    - `Command Pattern <http://sourcemaking.com/design_patterns/command>`_
+
+checklist:
+    -
+        title: 'Locate the Request Handling Code'
+        description: 'On the class which contains the conditional dispatcher, find the request handling code and extract it to a method.'
+    -
+        title: 'Repeat step 1'
+        description: 'Repeat step 1 for all request-handling code chunks. So that each handling code has its own method.'
+    -
+        title: 'Extract request-handling methods'
+        description: 'Next, extract each request-handling method to a new class, the Command class. The request-handling method is then typically named ``execute`` or ``run``.'
+    -
+        title: 'Define a Command base class/interface'
+        description: 'Once you have extracted all methods to Command classes, analyze them to see which code they have in common. This typically means: Determining common dependencies, determening common parameters, determining the simplest signature.'
+    -
+        title: 'Extend/Implement the base class/interface'
+        description: ''
+    -
+        title: 'Create a map containing all commands in the class containing the Conditional Dispatcher'
+        description: ''
+    -
+        title: 'Replace the Conditional Dispatcher with code retrieving the correct command and executing it'
+        description: ''
+
+examples:
+    workflow-server-worker:
+        title: Background Worker

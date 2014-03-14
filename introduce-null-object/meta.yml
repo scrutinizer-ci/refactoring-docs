@@ -1,0 +1,71 @@
+title: Introduce Null object
+initial_situation: Code for handling null behavior is duplicated.
+target_situation: Move the null handling code with an object.
+difficulty: easy
+
+fixes: [duplicated-code, conditional-complexity]
+
+pros:
+    - 'Removes duplicated null handling code'
+    - 'Simplifies code by removing null tests.'
+
+cons:
+    - 'Makes code more complex if you only have a few null tests.'
+    - 'Could introduce duplication if not everyone is aware of the Null object.'
+    - 'Could increase maintenance if Null object is implemented via inheritance.'
+
+intro: |
+    Depending on the language, calling a method on a variable which is null leads to
+    errors, system crashes or related behavior. In order to avoid this, developers
+    wrap the variable in null checks. Repeating such null handling logic in one or
+    two places is not necessarily a problem, but sprinkling it over the entire codebase
+    is less than ideal.
+
+    Code with many null checks is usually harder to read and comprehend. Null
+    checks must also be repeated in all future code, so all developers have to be
+    aware of duplicating the appropriate behavior.
+
+    Introducing a Null object, an object which represents the behavior in case of "null",
+    should usually reduce or at least keep the code size even. If the code size increases,
+    it is usually a sign that a Null object is not necessary.
+
+    A Null object can rawly be implemented in two flavors. Either by sub-classing, or
+    by implementing an interface. In the examples section, we will demonstrate both
+    variants.
+
+    Sub-Class vs. Interface Implementation
+    --------------------------------------
+    If you implement a Null object by sub-classing, the null handling behavior has to be implemented
+    by overriding each time a method is added to the parent class which might be forgotten.
+
+    If you instead implement an interface, an error will be produced if the new method
+    is not implemented.
+
+    Further Resources
+    -----------------
+    - `Null Object Pattern <http://sourcemaking.com/design_patterns/null_object>`_
+
+checklist:
+    -
+        title: 'Create the Null object'
+        description: 'The Null object can be created either by sub-classing or by implement an interface.'
+
+    -
+        title: 'Find null handling code'
+        description: 'Null handling code either checks that a variable against null and then performs some behavior or executes a method on the variable. This behavior should now be moved to the Null object.'
+
+    -
+        title: 'Repeat step 2'
+        description: 'Do the same for all other null handling code.'
+
+    -
+        title: 'Initialize Variable/Field to Null object'
+        description: 'Go to a class where a null check is used an initialize a field or variable to the Null object as early as possible.'
+
+    -
+        title: 'Replace Null Checks'
+        description: 'In the same class, replace all null checks with calls to the method on the Null object instead.'
+
+    -
+        title: 'Repeat steps 4 & 5'
+        description: 'Repeat both steps until all null checks have been removed.'

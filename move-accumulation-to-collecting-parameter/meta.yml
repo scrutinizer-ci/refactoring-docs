@@ -1,0 +1,41 @@
+title: Move Accumulation to Collecting Parameter
+initial_situation: You have a single big method that writes information to local variables.
+target_situation: Instead write results to a Collecting Parameter which gets passed to the extracted methods.
+difficulty: easy
+
+fixes: [long-method]
+
+pros:
+    - 'Helps split a big method into smaller and easier to understand methods.'
+
+intro: |
+    A Collecting Parameter is an object that you pass to methods in order to collect
+    information from those methods. Therefore, often this refactoring is combined with
+    the :refactoring:`compose-method` refactoring.
+
+    Instead of calling many methods in sequence and collecting their results in
+    local variables, you instead pass an object to these methods and the methods
+    can store their results in the passed object.
+
+#    This refactoring is very similar to the :refactoring:`move-accumulation-to-visitor`
+#    refactoring. A visitor may be the better approach if you collect data from diverse
+#    interfaces and classes.
+
+related:
+    - compose-method
+#    - move-accumulation-to-visitor
+
+examples:
+    php-dumper:
+        title: Code Generator
+
+checklist:
+    -
+        title: 'Identify Accumulation Method'
+        description: 'Find a method which accumulates information and stores the result to a local variable.'
+    -
+        title: 'Extract first Accumulation Operation'
+        description: 'Extract a logical unit of the accumulation to its own private method in the class, and pass the result variable as parameter. If the type of the variable cannot be modified by reference, you might need to switch its type.'
+    -
+        title: 'Repeat step 2 for every Accumulation Operation'
+        description: ''

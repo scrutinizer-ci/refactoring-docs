@@ -1,0 +1,17 @@
+title: Replace State Altering Conditionals with State
+initial_situation: The code controlling an object's state transition are complex.
+target_situation: Replace conditional code with State classes which handle specific states and their transitions.
+difficulty: easy
+
+fixes: [conditional-complexity]
+
+pros:
+    - 'Reduces or eliminates state-changing conditional code.'
+    - 'Simplifies complex state-changing code.'
+    - 'Provides a better overview of the state-changing code by encapsulating it.'
+
+cons:
+    - 'Makes code more complex if state transitions are easy to follow as is.'
+
+conditions:
+    - 'type == "class"'
