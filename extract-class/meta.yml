@@ -41,7 +41,7 @@ checklist:
         description: 'Decide whether you would like to expose the new object as a value object (immutable), or a reference object (may be modified).'
 
 conditions:
-    - 'type == "class"'
+    - 'type == "class" or type == "py-class"'
 
 examples:
     related-fields-to-value-object:

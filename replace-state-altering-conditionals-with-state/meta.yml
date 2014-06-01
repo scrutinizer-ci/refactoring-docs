@@ -14,4 +14,4 @@ cons:
     - 'Makes code more complex if state transitions are easy to follow as is.'
 
 conditions:
-    - 'type == "class"'
+    - 'type == "class" or type == "py-class"'
