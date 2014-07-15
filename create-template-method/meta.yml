@@ -44,5 +44,9 @@ pros:
 
 cons:
     - 'Makes code more complex if the similarity in both methods is low.'
+    
+examples:
+    'settings-example':
+        title: Moving get settings method to parent
 
 # TODO: Relates to Strategy, Factory Method
